@@ -1,3 +1,30 @@
-<h2 id="title">Welcome to Ember.js</h2>
-
 {{outlet}}
+<p>Contacts</p>
+<ul>
+  {{#each contact in model.contacts}}
+    <li> {{contact.name}} - {{contact.address.city}} - - {{#each group in contact.groups}} {{group.name}} {{/each}}</li>
+  {{/each}}
+</ul>
+
+<p>Addresses</p>
+<ul>
+  {{#each address in model.addresses}}
+    <li> {{address.city}} - {{address.profile.name}}</li>
+  {{/each}}
+</ul>
+
+<p>Groups</p>
+<ul>
+  {{#each group in model.groups}}
+    <li> {{group.name}} - {{#each contact in group.contacts}} {{contact.name}}, {{/each}}</li>
+  {{/each}}
+</ul>
+<p>Users</p>
+<ul>
+  {{#each user in model.users}}
+  <li> {{user.name}} - {{user.address.city}}</li>
+  {{/each}}
+</ul>
+
+
+
